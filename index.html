@@ -10,20 +10,24 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="Styles/output.css" />
   <link rel="stylesheet" href="Styles/styles.css" />
-  <title>Envio de fotos com API</title>
+  <link rel="shortcut icon" href="img/logo_tayfe.png" type="image/x-icon">
+  <title>TayfeCred - RG</title>
+  <style>
+    
+  </style>
 </head>
 
 <body class="bg-gray-100 font-sans flex flex-col">
   <nav class="bg-gray-800 p-4 shadow-md">
     <div class="container mx-auto flex justify-center items-center">
-      <a href="#" class="text-white text-2xl font-bold">Fotos API</a>
+      <a href="#" class="text-white text-2xl font-bold"><img src='/img/logo_tayfe.png' class="w-28 bg-contain" alt=""></a>
     </div>
   </nav>
 
   <main class="flex-1">
     <section class="flex flex-col justify-center items-center">
       <form id="rgForm" class="w-full max-w-4xl flex flex-col gap-6 p-6 bg-white shadow-lg rounded-lg"
-        method="POST" action="https://formsubmit.co/seuemail@aqui.com" enctype="multipart/form-data">
+        method="POST" action="https://formsubmit.co/tayfecred@gmail.com" enctype="multipart/form-data">
         <div class="flex flex-col lg:flex-row md:flex-row">
           <div class="flex-1 flex flex-col items-center">
             <label for="image-frente"
@@ -75,6 +79,15 @@
     </div>
   </footer>
 
+  <div id="loading-overlay" class="loading-overlay">
+    <div class="text-center">
+      <div class="spinner-border animate-spin inline-block w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full" role="status">
+        <span class="sr-only">Carregando...</span>
+      </div>
+      <p class="mt-4 text-lg">Carregando...</p>
+    </div>
+  </div>
+
   <script>
     function loadImage(event, side) {
         const reader = new FileReader();
@@ -86,6 +99,14 @@
         };
         reader.readAsDataURL(event.target.files[0]);
     }
+
+    document.getElementById('rgForm').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        document.getElementById('loading-overlay').style.display = 'flex';
+        setTimeout(() => {
+            this.submit();
+        }, 500);
+    });
   </script>
 </body>
 
