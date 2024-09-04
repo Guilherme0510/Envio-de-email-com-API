@@ -1,0 +1,22 @@
+{
+  "name": "project-rg-taife",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./Styles/styles.css -o ./Styles/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.10"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "firebase": "^10.13.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.15"
+  }
+}
